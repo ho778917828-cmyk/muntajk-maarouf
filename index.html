@@ -2,111 +2,43 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>منتجك معروف</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منتجك معروف - مونتاج احترافي</title>
 <style>
-*{box-sizing:border-box}
-body{font-family:Arial;background:#FFF8EE;margin:0;padding:0}
-.top{background:linear-gradient(135deg,#3E2723,#8D6E63);color:#fff;text-align:center;padding:35px 15px 25px;border-radius:0 0 25px 25px}
-.top h1{margin:0;font-size:30px}
-.top h1 span{color:#FFC107}
-.top p{color:#FFE0B2;margin:8px 0 15px}
-.search{background:#fff;border:none;width:90%;max-width:400px;padding:12px;border-radius:25px;text-align:center;font-size:15px;outline:none}
-.cats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:15px}
-.cats button{border:1px solid #D7CCC8;background:#fff;padding:8px 18px;border-radius:20px;cursor:pointer;font-weight:bold}
-.cats button.active{background:#3E2723;color:#fff}
-.section{max-width:850px;margin:auto;padding:0 15px}
-.section h2{font-size:19px;border-right:4px solid #FFC107;padding-right:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding-bottom:20px}
-.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 15px #0001;text-align:center;padding-bottom:12px;border:1px solid #FFE0B2}
-.card img{width:100%;height:165px;object-fit:cover}
-.card b{display:block;margin:9px;font-size:16px;color:#3E2723}
-.price{color:#2E7D32;font-weight:bold;font-size:18px}
-.cat{background:#FFF3E0;color:#E65100;display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;margin:6px}
-.card small{color:#777;display:block;padding:0 10px;min-height:32px}
-.btn{display:block;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;margin:10px;padding:12px;border-radius:12px;text-decoration:none;font-weight:bold}
-.btn2{display:block;background:#FFC107;color:#3E2723;margin:0 10px;padding:10px;border-radius:12px;text-decoration:none;font-weight:bold;font-size:13px}
-.footer{background:#3E2723;color:#FFE0B2;text-align:center;padding:20px;font-size:13px;border-radius:25px 25px 0 0;margin-top:10px}
+body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff;text-align:center}
+.hero{padding:60px 20px;background:linear-gradient(180deg,#000,#1a1400)}
+.hero h1{font-size:42px;color:#f5c518;margin:10px}
+.hero p{color:#ddd;font-size:18px}
+.btn{display:inline-block;padding:14px 28px;margin:10px;border-radius:30px;text-decoration:none;font-weight:bold}
+.wa{background:#25D366;color:#fff}
+.work{background:#f5c518;color:#000}
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:20px}
+.card{background:#1a1a1a;border:1px solid #f5c51833;border-radius:15px;padding:20px;width:280px}
+.card h3{color:#f5c518}
+.price{font-size:22px;font-weight:bold}
 </style>
 </head>
 <body>
-
-<div class="top">
-<h1>🛍️ منتجك <span>معروف</span></h1>
-<p>أصل اليمن .. عسل وبن ومنتجات طبيعية 100%</p>
-<input class="search" id="search" placeholder="🔍 ابحث عن منتج ... عسل ، بن ..." oninput="render()">
+<div class="hero">
+<h1 id="title">منتجك معروف</h1>
+<p id="subtitle">مونتاج يخلي فيديوهاتك تتصدر وتجيب زباين</p>
+<a class="btn wa" href="https://wa.me/967782844444">اطلب على واتساب</a>
+<a class="btn work" href="#services">شوف أعمالنا</a>
+<p>⭐ أكثر من 500 فيديو تم مونتاجه</p>
 </div>
-
-<div class="cats">
-<button class="active" onclick="setCat('الكل',this)">الكل</button>
-<button onclick="setCat('عسل',this)">🍯 عسل</button>
-<button onclick="setCat('بن',this)">☕ بن</button>
-<button onclick="setCat('أخرى',this)">✨ أخرى</button>
-</div>
-
-<div class="section">
-<h2>🔥 المنتجات الأكثر طلباً</h2>
-<div class="grid" id="grid"></div>
-</div>
-
-<div class="footer">
-منتجك معروف - للطلب واتساب 778917828<br><br>
-<a href="https://wa.me/967778917828" style="color:#25D366;font-weight:bold;text-decoration:none">💬 تواصل معنا واتساب</a>
-</div>
-
+<div class="cards" id="services"></div>
 <script>
-let currentCat = 'الكل';
-let products = [
-  {
-    name: "عسل دوعني أصلي",
-    price: 15000,
-    image: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600",
-    description: "عسل طبيعي 100% من وادي دوعن",
-    category: "عسل"
-  },
-  {
-    name: "بن يمني فاخر",
-    price: 8000,
-    image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600",
-    description: "بن حرازي درجة أولى - طعم يمني أصيل",
-    category: "بن"
-  },
-  {
-    name: "عسل سدر",
-    price: 20000,
-    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600",
-    description: "عسل سدر دوعني ممتاز - فخامة",
-    category: "عسل"
-  },
-  {
-    name: "زبيب يمني",
-    price: 5000,
-    image: "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=600",
-    description: "زبيب طبيعي من مزارع اليمن",
-    category: "أخرى"
-  }
+let products = JSON.parse(localStorage.getItem('muntajk')) || [
+{title:"ريلز انستقرام",price:"5,000 ريال",desc:"مونتاج سريع وجذاب"},
+{title:"فيديو يوتيوب",price:"10,000 ريال",desc:"مونتاج احترافي كامل"},
+{title:"إعلان تجاري",price:"15,000 ريال",desc:"إعلان يبيع منتجك"}
 ];
-
-function setCat(c, btn){
-  currentCat = c;
-  document.querySelectorAll('.cats button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  render();
-}
-
-function render(){
-  let q = document.getElementById('search').value;
-  let grid = document.getElementById('grid');
-  grid.innerHTML = '';
-  products.filter(p=>{
-    let okCat = currentCat==='الكل' || p.category===currentCat;
-    let okSearch = p.name.includes(q) || p.description.includes(q);
-    return okCat && okSearch;
-  }).forEach(p=>{
-    grid.innerHTML += `<div class="card"><img src="${p.image}"><b>${p.name}</b><div class="price">${p.price} ريال</div><span class="cat">${p.category}</span><small>${p.description}</small><a class="btn" href="https://wa.me/967778917828?text=أريد طلب ${encodeURIComponent(p.name)} - السعر ${p.price} ريال" target="_blank">اطلب واتساب</a><a class="btn2" href="https://wa.me/967778917828?text=استفسار عن ${encodeURIComponent(p.name)}" target="_blank">استفسار</a></div>`;
-  });
-}
-render();
+let box=document.getElementById('services');
+products.forEach(p=>{
+box.innerHTML+=`<div class="card"><h3>${p.title}</h3><p>${p.desc}</p><div class="price">${p.price}</div><br><a class="btn wa" href="https://wa.me/967782844444?text=اشتي ${p.title}">اطلب</a></div>`
+});
+let t=localStorage.getItem('site_title'); if(t) document.getElementById('title').innerText=t;
+let s=localStorage.getItem('site_sub'); if(s) document.getElementById('subtitle').innerText=s;
 </script>
 </body>
 </html>

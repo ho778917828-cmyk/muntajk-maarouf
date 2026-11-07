@@ -2,54 +2,33 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>منتجك معروف | مونتاج يخليك معروف</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منتجك معروف</title>
 <style>
-*{box-sizing:border-box}
-body{font-family:system-ui,Tahoma,sans-serif;margin:0;background:#0f0f0f;color:#fff;text-align:center}
-header{padding:50px 20px 30px;background:linear-gradient(180deg,#ff7a00,#ff4d00)}
-header h1{font-size:38px;margin:0;line-height:1.2}
-header p{font-size:19px;opacity:.95}
-.badge{background:#fff;color:#ff4d00;padding:6px 14px;border-radius:20px;font-weight:700;display:inline-block;margin-bottom:15px}
-.wrap{padding:20px;max-width:650px;margin:auto}
-.card{background:#1c1c1c;border:1px solid #333;border-radius:18px;padding:22px;margin:14px 0;text-align:right}
-.card h2{color:#ff7a00;margin:0 0 8px;font-size:22px}
-.card p{margin:0;color:#ddd;line-height:1.7}
-.price{font-size:30px;font-weight:900;color:#ff7a00;margin:8px 0}
-.btn{display:block;background:#25D366;color:#fff;padding:16px;border-radius:14px;font-size:20px;font-weight:800;text-decoration:none;margin:18px 0}
-.btn2{display:block;background:#ff7a00;color:#fff;padding:16px;border-radius:14px;font-size:19px;font-weight:800;text-decoration:none;margin:10px 0}
-.small{color:#aaa;font-size:14px;line-height:1.6}
-.works{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
-.works div{background:#222;border-radius:14px;padding:20px 10px;font-weight:700}
-footer{padding:20px;color:#888;font-size:13px}
+body{font-family:Arial;background:#f4f4f4;margin:0;padding:15px}
+h1{text-align:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:800px;margin:auto}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0001;text-align:center;padding-bottom:10px}
+.card img{width:100%;height:150px;object-fit:cover}
+.card b{display:block;margin:8px}
+.price{color:#25D366;font-weight:bold}
+.btn{display:block;background:#25D366;color:#fff;margin:10px;padding:10px;border-radius:8px;text-decoration:none}
 </style>
 </head>
 <body>
-<header>
-<div class="badge">🔥 اكثر من 500 فيديو تم مونتاجه</div>
-<h1>منتجك معروف<br>مونتاج يخليك معروف</h1>
-<p>نحول فيديوك العادي الى فيديو احترافي يوقف الناس ويخليهم يتابعوك</p>
-</header>
-<div class="wrap">
-<a class="btn" href="https://wa.me/967778917828?text=هلا%20اريد%20مونتاج%20لفيديو">اطلب مونتاجك الآن على واتساب 📲</a>
-<div class="card">
-<h2>🎬 وش نسوي لك؟</h2>
-<p>✅ مونتاج ريلز وتيك توك<br>✅ مقدمات يوتيوب احترافية<br>✅ حذف التقطيع والغلطات<br>✅ مؤثرات وصوت وموسيقى<br>✅ كتابة على الفيديو وترجمة<br>✅ تسليم سريع خلال 24 ساعة</p>
-</div>
-<div class="works">
-<div>📱 ريلز</div>
-<div>🎥 يوتيوب</div>
-<div>🛍️ اعلانات</div>
-<div>💍 اعراس</div>
-</div>
-<div class="card">
-<h2>💰 الباقة الذهبية</h2>
-<div class="price">الاكثر طلبا</div>
-<p>فيديو كامل احترافي + غلاف + موسيقى + تعديلين مجانا<br>تسليم خلال 24 ساعة</p>
-</div>
-<a class="btn2" href="https://wa.me/967778917828?text=هلا%20اريد%20الباقة%20الذهبية">احجز الباقة الذهبية ✨</a>
-<p class="small">اضغط الزر الاخضر وبيفتح لك الواتساب على طول، ارسل فيديوك ونبدأ فيه اليوم.<br>الدفع: كريمي - ام فلوس - حوالة</p>
-</div>
-<footer>© 2026 منتجك معروف - جميع الحقوق محفوظة</footer>
+<h1>🛍️ منتجك معروف</h1>
+<p style="text-align:center">أفضل المنتجات اليمنية الأصلية</p>
+<div class="grid" id="grid"></div>
+<script>
+let products = JSON.parse(localStorage.getItem('my_products')||'[]');
+let grid = document.getElementById('grid');
+if(products.length==0){
+ grid.innerHTML = '<p style="grid-column:1/3;text-align:center">لا يوجد منتجات بعد، ارجع للوحة التحكم وأضف منتج</p>';
+} else {
+ products.forEach(p=>{
+  grid.innerHTML += `<div class="card"><img src="${p.img||'https://via.placeholder.com/300'}"><b>${p.name}</b><div class="price">${p.price} ريال</div><small>${p.desc||''}</small><a class="btn" href="https://wa.me/967778917828?text=أريد ${encodeURIComponent(p.name)}" target="_blank">اطلب واتساب</a></div>`;
+ });
+}
+</script>
 </body>
 </html>

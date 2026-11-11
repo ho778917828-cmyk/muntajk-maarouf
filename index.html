@@ -3,33 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>منتجك معروف - مونتاج احترافي</title>
+<title>الحسين للسفر والسياحة | احجز رحلتك</title>
 <style>
-body{margin:0;font-family:Arial;background:#0a0a0a;color:#fff;text-align:center}
-.hero{padding:60px 20px;background:linear-gradient(180deg,#000,#1a1400)}
-.hero h1{font-size:42px;color:#f5c518;margin:10px}
-.hero p{color:#ddd;font-size:18px}
-.btn{display:inline-block;padding:14px 28px;margin:10px;border-radius:30px;text-decoration:none;font-weight:bold}
-.wa{background:#25D366;color:#fff}
-.work{background:#f5c518;color:#000}
-.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;padding:20px}
-.card{background:#1a1a1a;border:1px solid #f5c51833;border-radius:15px;padding:20px;width:280px}
-.card h3{color:#f5c518}
-.price{font-size:22px;font-weight:bold}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,sans-serif}
+body{background:#f5f7fa;color:#222}
+header{background:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
+header b{font-size:22px;color:#0b5ed7} header b span{color:#f59e0b}
+header a{background:#25D366;color:#fff;padding:9px 16px;border-radius:20px;text-decoration:none;font-weight:bold}
+.hero{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200');background-size:cover;background-position:center;color:#fff;text-align:center;padding:60px 20px}
+.hero h1{font-size:32px;margin-bottom:8px} .hero p{opacity:.9;margin-bottom:20px}
+.search{background:#fff;border-radius:16px;padding:16px;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;color:#222}
+.search label{font-size:13px;font-weight:bold;text-align:right;display:block}
+.search select,.search input{width:100%;padding:11px;border:1px solid #ddd;border-radius:10px;margin-top:4px}
+.search button{background:#0b5ed7;color:#fff;border:0;padding:12px 20px;border-radius:10px;font-weight:bold;cursor:pointer}
+.section{max-width:1100px;margin:30px auto;padding:0 16px}
+.section h2{font-size:24px;margin-bottom:6px} .section p{color:#666;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.07)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card div{padding:14px} .card h3{font-size:19px} .card p{font-size:14px;margin:6px 0}
+.price{color:#0b5ed7;font-weight:bold;font-size:19px} .price small{color:#888;font-size:12px}
+.btn{display:block;text-align:center;background:#25D366;color:#fff;padding:11px;border-radius:10px;text-decoration:none;font-weight:bold;margin-top:10px}
+.btn2{background:#0b5ed7}
+.services{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.service{background:#fff;padding:18px;border-radius:14px;text-align:center}
+.service span{font-size:30px}
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.review{background:#fff;padding:16px;border-radius:14px}
+.stars{color:#f59e0b}
+footer{background:#0f172a;color:#fff;text-align:center;padding:24px;margin-top:30px}
+footer a{color:#25D366;text-decoration:none;font-weight:bold}
 </style>
 </head>
 <body>
+
+<header>
+<b>الحسين <span>للسفر</span> ✈️</b>
+<a href="https://wa.me/967778917828">واتساب 778917828</a>
+</header>
+
 <div class="hero">
-<h1>منتجك معروف</h1>
-<p>مونتاج يخلي فيديوهاتك تتصدر وتجيب زباين</p>
-<a class="btn wa" href="https://wa.me/967778917828">اطلب على واتساب</a>
-<a class="btn work" href="#services">شوف أعمالنا</a>
-<p>⭐ أكثر من 500 فيديو تم مونتاجه</p>
+<h1>سافر مع الحسين، وين ما تبي 🌍</h1>
+<p>طيران - فنادق - فيزا - عمرة - رحلات عائلية</p>
+<div class="search">
+<div><label>من وين؟</label><select id="from"><option>صنعاء</option><option>عدن</option><option>تعز</option><option>المكلا</option><option>سيئون</option></select></div>
+<div><label>وين تبي تروح؟</label><select id="to"><option>ماليزيا</option><option>تركيا</option><option>مصر</option><option>دبي</option><option>السعودية - عمرة</option><option>تايلاند</option></select></div>
+<div><label>تاريخ السفر</label><input type="date" id="date"></div>
+<button onclick="book()">ابحث واحجز</button>
 </div>
-<div class="cards" id="services">
-<div class="card"><h3>ريلز انستقرام</h3><p>مونتاج سريع وجذاب</p><div class="price">5,000 ريال</div><br><a class="btn wa" href="https://wa.me/967778917828?text=اشتي ريلز انستقرام">اطلب</a></div>
-<div class="card"><h3>فيديو يوتيوب</h3><p>مونتاج احترافي كامل</p><div class="price">10,000 ريال</div><br><a class="btn wa" href="https://wa.me/967778917828?text=اشتي فيديو يوتيوب">اطلب</a></div>
-<div class="card"><h3>إعلان تجاري</h3><p>إعلان يبيع منتجك</p><div class="price">15,000 ريال</div><br><a class="btn wa" href="https://wa.me/967778917828?text=اشتي إعلان تجاري">اطلب</a></div>
 </div>
+
+<div class="section">
+<h2>🔥 عروضنا الاكثر طلبا</h2>
+<p>اضغط احجز وبتوصلك رسالة واتساب جاهزة</p>
+<div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1508062878650-88b52897f298?w=800"><div><h3>🇲🇾 ماليزيا - كوالالمبور</h3><p>7 ليالي - طيران + فندق + فطور + جولات</p><div class="price">$750 <small>/ للشخص</small></div><a class="btn" href="https://wa.me/967778917828?text=مرحبا، ابغى احجز ماليزيا">احجز الان على واتساب</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800"><div><h3>🇹🇷 تركيا - اسطنبول</h3><p>6 ليالي - طيران + فندق + جولة البسفور</p><div class="price">$650 <small>/ للشخص</small></div><a class="btn" href="https://wa.me/967778917828?text=مرحبا، ابغى احجز تركيا">احجز الان على واتساب</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1539768942893-daf53e448371?w=800"><div><h3>🇪🇬 مصر - القاهرة</h3><p>5 ليالي - طيران + فندق + زيارة الاهرامات</p><div class="price">$450 <small>/ للشخص</small></div><a class="btn" href="https://wa.me/967778917828?text=مرحبا، ابغى احجز مصر">احجز الان على واتساب</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800"><div><h3>🇦🇪 دبي</h3><p>4 ليالي - طيران + فندق + برج خليفة</p><div class="price">$550 <small>/ للشخص</small></div><a class="btn" href="https://wa.me/967778917828?text=مرحبا، ابغى احجز دبي">احجز الان على واتساب</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?w=800"><div><h3>🕋 السعودية - عمرة</h3><p>10 ايام - طيران + فندق قريب الحرم + نقل</p><div class="price">$950 <small>/ للشخص</small></div><a class="btn" href="https://wa.me/967778917828?text=مرحبا، ابغى احجز عمرة">احجز الان على واتساب</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800"><div><h3>🇹🇭 تايلاند - بانكوك</h3><p>7 ليالي - طيران + فندق + جزر</p><div class="price">$700 <small>/ للشخص</small></div><a class="btn" href="https://wa.me/967778917828?text=مرحبا، ابغى احجز تايلاند">احجز الان على واتساب</a></div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>خدماتنا</h2>
+<div class="services">
+<div class="service"><span>✈️</span><h3>تذاكر طيران</h3><p>ارخص الاسعار لكل الدول</p></div>
+<div class="service"><span>🏨</span><h3>حجز فنادق</h3><p>فنادق 3 - 5 نجوم</p></div>
+<div class="service"><span>🛂</span><h3>فيزا</h3><p>فيز سياحية سريعة</p></div>
+<div class="service"><span>🕋</span><h3>عمرة وحج</h3><p>باقات كاملة ومضمونة</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>⭐ ايش قالوا عنا زباينا؟</h2>
+<div class="reviews">
+<div class="review"><div class="stars">⭐⭐⭐⭐⭐</div><p>"حجزت ماليزيا معهم، كل شي مرتب من المطار للفندق، انصح فيهم"</p><b>- محمد، صنعاء</b></div>
+<div class="review"><div class="stars">⭐⭐⭐⭐⭐</div><p>"اسعارهم احسن من الكل، وردهم سريع على الواتساب"</p><b>- احمد، عدن</b></div>
+<div class="review"><div class="stars">⭐⭐⭐⭐⭐</div><p>"طلعنا عمرة معهم، الفندق قريب من الحرم وكل شي كان ممتاز"</p><b>- ام عبدالله، تعز</b></div>
+</div>
+</div>
+
+<footer>
+<h3>الحسين للسفر والسياحة</h3>
+<p>للتواصل واتساب: <a href="https://wa.me/967778917828">778917828</a></p>
+<p style="opacity:.6;font-size:13px">© 2026 الحسين للسفر - جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+function book(){
+let to=document.getElementById('to').value;
+let from=document.getElementById('from').value;
+let date=document.getElementById('date').value;
+let msg="مرحبا، ابغى احجز رحلة من "+from+" الى "+to+" بتاريخ "+date;
+window.open("https://wa.me/967778917828?text="+encodeURIComponent(msg));
+}
+</script>
 </body>
 </html>
